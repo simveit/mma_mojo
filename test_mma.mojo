@@ -91,7 +91,7 @@ fn mma_wrapper(mut d: SIMD, a: SIMD, b: SIMD, c: SIMD):
     var r = llvm_intrinsic[
         "llvm.nvvm.mma.m16n8k16.row.col.f16.f16",
         _RegisterPackType[SIMD[DType.float16, 2], SIMD[DType.float16, 2]],
-    ](ssa[0], ssa1[1], ssa1[0], ssa1[1], sb[0], sb[1], sc[0], sc[1])
+    ](ssa[0], ssa0[1], ssa1[0], ssa1[1], sb[0], sb[1], sc[0], sc[1])
 
     d = rebind[__type_of(d)](r[0].join(r[1]))
 
